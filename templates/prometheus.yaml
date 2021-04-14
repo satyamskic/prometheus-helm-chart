@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: prometheus
+    region: IN
+  name: prometheus
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: prometheus
+      region: IN
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: prometheus
+        region: IN
+    spec:
+      containers:
+      - image: satyam0786/prometheus:v1
+        name: prometheus-monitoring-tool
+
+status: {}
